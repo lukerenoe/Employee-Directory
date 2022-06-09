@@ -92,5 +92,43 @@ function viewEmployees() {
 
 
 function addEmployee() {
-    
+    db.query("SELECT * FROM roles", function (err, res) {
+        if (err) {
+            throw err
+        }
+        inquirer.prompt([
+            {
+            type: "input",
+            name: "first_name",
+            message: "What is the employee's first name?"
+            },
+            {
+            type: "input",
+            name: "last_name",
+            message: "What is the employee's last name?"
+            },
+            {
+            type: "list",
+            name: "role_title",
+            message: "What is their role?", 
+            choices: res.map(role => role.title)
+            },
+            {
+            type: "list",
+            name: "manager_id",
+            message: "What is their manager id?",
+            choices: ["1"]
+            }
+        ]) .then(response => {
+            const roleResponse = res.find(role => role.title === response.role_title)
+            db.query("INSERT INTO employees SET ?", {
+                first_name: response.first_name,
+                last_name: response.last_name,
+                role_id: roleResponse.id,
+                manager_id: response.manager_id
+            })
+console.log("New Employee Added")
+questionPrompt()
+        })
+    })
 }
