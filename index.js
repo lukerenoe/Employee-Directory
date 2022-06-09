@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const db = require('../server');
+const db = require('./server');
 
 
 db.connect (function (err) {
@@ -58,4 +58,39 @@ function questionPrompt () {
             break;
         }
         });
+}
+
+function viewDepartments() {
+    db.query("SELECT * FROM departments", function (err, res){
+        if (err) {
+            throw err
+        }
+        console.table(res)
+        questionPrompt()
+    })
+}
+
+function viewRoles() {
+    db.query("SELECT * FROM roles", function (err, res){
+        if (err) {
+            throw err
+        }
+        console.table(res)
+        questionPrompt()
+    })
+}
+
+function viewEmployees() {
+    db.query("SELECT * FROM employees", function (err, res){
+        if (err) {
+            throw err
+        }
+        console.table(res)
+        questionPrompt()
+    })
+}
+
+
+function addEmployee() {
+    
 }
