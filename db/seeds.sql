@@ -8,7 +8,7 @@ VALUES ("Financial"),
 
 INSERT INTO roles (title, salary, department_id)
 VALUES ("Rat Basher", 60, 2),
-("Golden God", 120, 3),
+("Golden God", 100, 3),
 ("Bird", 80, 3),
 ("The WartHog", 4000000, 1),
 ("Sheriff of Paddy's", 70, 4);
