@@ -1,6 +1,9 @@
 # Employee-Directory
 
 
+## Description
+Use this Employee Database Editor to view, edit, and add roles, departments, and employees
+
 ## Usage
 
 <img width="428" alt="Screenshot 2022-06-13 145138" src="https://user-images.githubusercontent.com/104282128/173443313-4dbc5f99-efea-45db-b601-ce914bdd3558.png">
